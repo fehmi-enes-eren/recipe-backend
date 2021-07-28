@@ -5,11 +5,19 @@ const dbConfig= require('./app/config/db.config')
 
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
+// var corsOptions = {
+//   origin: "http://localhost:8081"
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header("Access-Control-Allow-Headers", "x-access-token, Origin,  X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
