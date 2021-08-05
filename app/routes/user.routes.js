@@ -74,11 +74,11 @@ module.exports = function(app) {
 const findOneUser = (req,res) => {
   
   const {id} = req.params;
-  console.log(id)
+  //console.log(id)
   UserModel.findById(id)
   .then(response=>{
     res.json(response);
-    console.log(response)
+    //console.log(response)
   })
   .catch(err=>{
     res.json(err)
